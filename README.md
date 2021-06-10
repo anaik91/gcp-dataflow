@@ -20,6 +20,9 @@ Install python libs
 
 [Install BigQuery Plugin for Protobuf from the link here ](https://github.com/GoogleCloudPlatform/protoc-gen-bq-schema)
 
+> Post installation Change the Plugin path in the `deploy.sh` file .
+> Change the `PROTOBUF_BQ_PLUGIN` in the `deploy.sh` file to the path containing the `protoc-gen-bq-schema` binary
+
 ## Deploy 
 
 ```
