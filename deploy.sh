@@ -21,6 +21,6 @@ undeploy_tf() {
 
 echo -e "generating Big Query Schema for ${BASEDIR}/${PROTOBUF_DIR}/${PROTOBUF_FILE}"
 protoc --plugin=${PROTOBUF_BQ_PLUGIN} --bq-schema_out=${BASEDIR}/${TF_DIR} --proto_path=${BASEDIR}/${PROTOBUF_DIR} ${PROTOBUF_FILE}
-exit 
+
 cd ${BASEDIR}/${TF_DIR}
 deploy_tf
