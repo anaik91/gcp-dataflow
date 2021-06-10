@@ -22,3 +22,12 @@ variable "service_account_name" {
   type        = string
   description = "GCP Service Account Name"
 }
+
+variable "bq_table_name" {
+  type = string
+  description = "Big Query Table Name"
+}
+
+# variable "schemafile" {
+#   default = "schema.json"
+# }

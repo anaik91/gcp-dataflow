@@ -3,7 +3,7 @@ resource "google_bigquery_dataset" "dataset" {
   friendly_name               = "test"
   description                 = "This is a test description"
   location                    = var.gs_region
-  default_table_expiration_ms = 3600000
+  #default_table_expiration_ms = 3600000
 
   labels = {
     env = "default"
@@ -23,18 +23,9 @@ resource "google_bigquery_dataset" "dataset" {
 
 resource "google_bigquery_table" "table" {
   dataset_id          = google_bigquery_dataset.dataset.dataset_id
-  table_id            = "test"
+  table_id            = var.bq_table_name
   deletion_protection = false
 
-  schema = <<EOF
-[
-  {
-    "name": "data",
-    "type": "STRING",
-    "mode": "NULLABLE",
-    "description": "The Permalink"
-  }
-]
-EOF
+  schema = file("${path.module}/bigquery/table.schema")
 
 }
